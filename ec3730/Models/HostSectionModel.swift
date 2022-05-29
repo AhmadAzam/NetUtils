@@ -47,6 +47,11 @@ class HostSectionModel: ObservableObject, Equatable, Identifiable, Hashable {
     }
 
     @MainActor
+    func initDemoData() throws -> Data? {
+        nil
+    }
+
+    @MainActor
     func configure(with _: Data) throws -> Data? {
         fatalError("Configure your section configure data function")
     }

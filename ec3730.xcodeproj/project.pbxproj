@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA22B1A52843127700D555A9 /* WhoisXmlWhoisSectionModel.json in Resources */ = {isa = PBXBuildFile; fileRef = AA22B1A12843127700D555A9 /* WhoisXmlWhoisSectionModel.json */; };
+		AA22B1A62843127700D555A9 /* GoogleWebRiskSectionModel.json in Resources */ = {isa = PBXBuildFile; fileRef = AA22B1A22843127700D555A9 /* GoogleWebRiskSectionModel.json */; };
+		AA22B1A72843127700D555A9 /* WhoisXmlReputationSectionModel.json in Resources */ = {isa = PBXBuildFile; fileRef = AA22B1A32843127700D555A9 /* WhoisXmlReputationSectionModel.json */; };
+		AA22B1A82843127700D555A9 /* WhoisXmlDnsSectionModel.json in Resources */ = {isa = PBXBuildFile; fileRef = AA22B1A42843127700D555A9 /* WhoisXmlDnsSectionModel.json */; };
+		AA22B1AA2843129B00D555A9 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22B1A92843129B00D555A9 /* Utility.swift */; };
+		AA22B1AC28431E0600D555A9 /* LocalDnsModel.json in Resources */ = {isa = PBXBuildFile; fileRef = AA22B1AB28431E0600D555A9 /* LocalDnsModel.json */; };
 		AA8FBAB9283AA6A000280377 /* HostViewSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FBAB8283AA6A000280377 /* HostViewSectionContent.swift */; };
 		F60506742134B23F00DDF8A4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60506732134B23F00DDF8A4 /* UIViewController.swift */; };
 		F60FD36025E0607C00BCEF86 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F60FD35E25E0607C00BCEF86 /* DataModel.xcdatamodeld */; };
@@ -134,6 +140,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA22B1A12843127700D555A9 /* WhoisXmlWhoisSectionModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WhoisXmlWhoisSectionModel.json; sourceTree = "<group>"; };
+		AA22B1A22843127700D555A9 /* GoogleWebRiskSectionModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoogleWebRiskSectionModel.json; sourceTree = "<group>"; };
+		AA22B1A32843127700D555A9 /* WhoisXmlReputationSectionModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WhoisXmlReputationSectionModel.json; sourceTree = "<group>"; };
+		AA22B1A42843127700D555A9 /* WhoisXmlDnsSectionModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WhoisXmlDnsSectionModel.json; sourceTree = "<group>"; };
+		AA22B1A92843129B00D555A9 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		AA22B1AB28431E0600D555A9 /* LocalDnsModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocalDnsModel.json; sourceTree = "<group>"; };
 		AA8FBAB8283AA6A000280377 /* HostViewSectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewSectionContent.swift; sourceTree = "<group>"; };
 		F60506732134B23F00DDF8A4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F60FD35F25E0607C00BCEF86 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -293,6 +305,19 @@
 				F63540DC213E1D1B00605ABE /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA22B1A0284311CD00D555A9 /* DemoData */ = {
+			isa = PBXGroup;
+			children = (
+				AA22B1AB28431E0600D555A9 /* LocalDnsModel.json */,
+				AA22B1A22843127700D555A9 /* GoogleWebRiskSectionModel.json */,
+				AA22B1A42843127700D555A9 /* WhoisXmlDnsSectionModel.json */,
+				AA22B1A32843127700D555A9 /* WhoisXmlReputationSectionModel.json */,
+				AA22B1A12843127700D555A9 /* WhoisXmlWhoisSectionModel.json */,
+				AA22B1A92843129B00D555A9 /* Utility.swift */,
+			);
+			path = DemoData;
 			sourceTree = "<group>";
 		};
 		F60FD36E25E060DC00BCEF86 /* Persistence */ = {
@@ -463,6 +488,7 @@
 		F6C8D8A3212E5AE900309373 /* ec3730 */ = {
 			isa = PBXGroup;
 			children = (
+				AA22B1A0284311CD00D555A9 /* DemoData */,
 				F6A4EB9E2301F31100439562 /* ec3730.entitlements */,
 				F6242CC1260185180051320F /* Configuration.storekit */,
 				F6C8D8A4212E5AE900309373 /* AppDelegate.swift */,
@@ -676,8 +702,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA22B1A62843127700D555A9 /* GoogleWebRiskSectionModel.json in Resources */,
 				F6C8D8B1212E5AEA00309373 /* LaunchScreen.storyboard in Resources */,
+				AA22B1A82843127700D555A9 /* WhoisXmlDnsSectionModel.json in Resources */,
+				AA22B1A52843127700D555A9 /* WhoisXmlWhoisSectionModel.json in Resources */,
 				F6C8D8AE212E5AEA00309373 /* Assets.xcassets in Resources */,
+				AA22B1AC28431E0600D555A9 /* LocalDnsModel.json in Resources */,
+				AA22B1A72843127700D555A9 /* WhoisXmlReputationSectionModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +876,7 @@
 				F6397FF725EF045200914B3F /* PurchaseCellView.swift in Sources */,
 				F63B9226279BBA87007E845F /* HostDataGroup.swift in Sources */,
 				F6FBB86723677FA700E023F2 /* DeviceController.swift in Sources */,
+				AA22B1AA2843129B00D555A9 /* Utility.swift in Sources */,
 				F671EF4C277553D6007AF79F /* HostSectionOrganizerView.swift in Sources */,
 				F63B922C279C9079007E845F /* HostResult.swift in Sources */,
 			);
