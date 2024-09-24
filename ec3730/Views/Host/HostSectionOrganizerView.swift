@@ -16,8 +16,8 @@ struct HostSectionOrganizerView: View {
                 }.onMove { indexSet, offset in
                     print(indexSet, indexSet.first ?? "", offset)
                     withAnimation {
-                        self.model.objectWillChange.send()
-                        self.model.sections.move(fromOffsets: indexSet, toOffset: offset)
+                        model.objectWillChange.send()
+                        model.sections.move(fromOffsets: indexSet, toOffset: offset)
                     }
                 }
                 // would be great if instead of delete it said hide
@@ -26,13 +26,13 @@ struct HostSectionOrganizerView: View {
                     if let index = indexSet.first {
                         let section = model.sections[index]
                         withAnimation {
-                            self.model.hidden.append(section.sectionModel.service.name)
+                            model.hidden.append(section.sectionModel.service.name)
                         }
                     }
                 }
             }
 
-            if self.mode?.wrappedValue.isEditing ?? true || !model.hidden.isEmpty {
+            if mode?.wrappedValue.isEditing ?? true || !model.hidden.isEmpty {
                 Section(header: Text("Hidden")) {
                     ForEach(model.hidden, id: \.self) { section in
                         Text(section)
@@ -43,7 +43,7 @@ struct HostSectionOrganizerView: View {
                         if let index = indexSet.first {
                             let section = model.hidden[index]
                             withAnimation {
-                                self.model.hidden.removeAll(where: { $0 == section })
+                                model.hidden.removeAll(where: { $0 == section })
                             }
                         }
                     }

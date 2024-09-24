@@ -46,9 +46,9 @@ struct PurchaseCellView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: imageSize)
                 VStack(alignment: .leading) {
-                    Text(self.heading)
+                    Text(heading)
                         .font(.headline)
-                    Text(self.subheading)
+                    Text(subheading)
                         .font(.subheadline)
                 }
                 .foregroundColor(Color(uiColor: UIColor.label))
@@ -70,7 +70,7 @@ struct PurchaseCellView: View {
 
                 let unitType = product?.subscription?.subscriptionPeriod.unit ?? .month
 
-                (Text("Start your free \(product?.subscription?.introductoryOffer?.period.value ?? 3)-\(promoUnitType.debugDescription.lowercased()) trial").bold() + Text(" then all \(self.heading) Data is available for \(product?.displayPrice ?? "-")/\(unitType.debugDescription.lowercased()) automatically"))
+                (Text("Start your free \(product?.subscription?.introductoryOffer?.period.value ?? 3)-\(promoUnitType.debugDescription.lowercased()) trial").bold() + Text(" then all \(heading) Data is available for \(product?.displayPrice ?? "-")/\(unitType.debugDescription.lowercased()) automatically"))
                     .font(.footnote)
                     .foregroundColor(Color(uiColor: UIColor.secondaryLabel))
                     .multilineTextAlignment(.leading)
@@ -87,7 +87,7 @@ struct PurchaseCellView: View {
                             HStack {
                                 Button(action: {
                                     Task {
-                                        await self.restore()
+                                        await restore()
                                     }
                                 }, label: {
                                     Label("Restore", systemImage: "arrow.clockwise.circle")
@@ -128,7 +128,7 @@ struct PurchaseCellView: View {
             }
             Button {
                 Task {
-                    await self.restore()
+                    await restore()
                 }
             } label: {
                 Label("Restore", systemImage: "arrow.clockwise")
@@ -180,7 +180,7 @@ struct PurchaseCellView: View {
     private func buyButton() -> some View {
         Button(action: {
             Task {
-                await self.buy()
+                await buy()
             }
         }, label: {
             Group {

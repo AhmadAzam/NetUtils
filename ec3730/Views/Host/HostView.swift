@@ -31,11 +31,11 @@ struct HostView: View {
                 // so we will make it a regular vstack until we have
                 // more sections? can reinvestigate later
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(self.model.sections) { section in
+                    ForEach(model.sections) { section in
                         section
                             .id(section.id)
                             .onDrag {
-                                self.dragging = section
+                                dragging = section
 
                                 return NSItemProvider(item: String(section.id) as NSString, typeIdentifier: "com.twodayslate.netutils.hostview.header")
                             }
@@ -54,10 +54,10 @@ struct HostView: View {
                 refresh: nil,
                 go: {
                     Task {
-                        await self.query { errors in
-                            guard errors.count <= 0 else {
+                        await query { errors in
+                            guard errors.isEmpty else {
                                 self.errors = errors
-                                self.showErrors = true
+                                showErrors = true
                                 return
                             }
                         }
@@ -88,7 +88,7 @@ struct HostView: View {
         .sheet(item: $demoSheetModel.model) { model in
             HostViewSectionFocusView(model: model.demoModel, url: model.demoUrl, date: model.demoDate)
         }
-        .alert("Error", isPresented: $showErrors, presenting: self.errors, actions: { _ in
+        .alert("Error", isPresented: $showErrors, presenting: errors, actions: { _ in
             // Button("Okay", role: .cancel) {}
         }, message: { errors in
             let description = Array(Set(errors.map(\.localizedDescription))).joined(separator: "\n")
@@ -100,9 +100,9 @@ struct HostView: View {
     /// query and set errors (if applicable)  upon completion
     func lookup() async {
         await query { errors in
-            guard errors.count <= 0 else {
+            guard errors.isEmpty else {
                 self.errors = errors
-                self.showErrors = true
+                showErrors = true
                 return
             }
         }
@@ -147,7 +147,7 @@ struct HostView: View {
             }
 
             var datas = Set<HostData>()
-            for section in self.model.sections {
+            for section in model.sections {
                 if let str = section.sectionModel.dataToCopy, let data = str.data(using: .utf8) {
                     datas.insert(HostData(context: PersistenceController.shared.container.viewContext, service: section.sectionModel.service, data: data))
                 }

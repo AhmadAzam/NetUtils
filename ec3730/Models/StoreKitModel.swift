@@ -165,9 +165,7 @@ class StoreKitModel: ObservableObject {
 
 @available(iOS 15.0.0, *)
 extension StoreKitModel {
-    static var whois: StoreKitModel = {
-        StoreKitModel(defaultId: "whois.monthly.auto", ids: ["whois.yearly.auto", "whois.onetime"])
-    }()
+    static var whois: StoreKitModel = .init(defaultId: "whois.monthly.auto", ids: ["whois.yearly.auto", "whois.onetime"])
 
     static var dns: StoreKitModel = .whois
 
@@ -179,11 +177,7 @@ extension StoreKitModel {
 
     static var categorization: StoreKitModel = .whois
 
-    static var monapi: StoreKitModel = {
-        StoreKitModel(defaultId: "monapi.monthly.auto", ids: ["monapi.yearly.auto", "monapi.onetime"])
-    }()
+    static var monapi: StoreKitModel = .init(defaultId: "monapi.monthly.auto", ids: ["monapi.yearly.auto", "monapi.onetime"])
 
-    static var webrisk: StoreKitModel = {
-        StoreKitModel(defaultId: "googlewebrisk.onetime", ids: [])
-    }()
+    static var webrisk: StoreKitModel = .init(defaultId: "googlewebrisk.onetime", ids: [])
 }

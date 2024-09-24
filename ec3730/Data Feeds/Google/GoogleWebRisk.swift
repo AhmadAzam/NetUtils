@@ -42,9 +42,7 @@ final class GoogleWebRisk: DataFeedSingleton, DataFeedOneTimePurchase {
 
     var oneTime: OneTimePurchase = .init("googlewebrisk.onetime")
 
-    var services: [Service] = {
-        [GoogleWebRisk.lookupService]
-    }()
+    var services: [Service] = [GoogleWebRisk.lookupService]
 }
 
 // MARK: - Endpoints

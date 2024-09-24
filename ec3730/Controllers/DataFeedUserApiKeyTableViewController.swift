@@ -162,10 +162,6 @@ class DataFeedUserApiKeyTableViewController: UITableViewController {
         footer.label.delegate = self
         return footer
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
 }
 
 extension DataFeedUserApiKeyTableViewController: UITextViewDelegate {

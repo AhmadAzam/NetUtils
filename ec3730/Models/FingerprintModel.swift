@@ -3,7 +3,7 @@ import WebKit
 
 @MainActor
 class FingerPrintModel: ObservableObject {
-    var url: URL
+    let url: URL
     var _onFinish: (FingerPrintModel, WKWebView) -> Void
     weak var parent: DeviceInfoModel?
 
@@ -32,7 +32,7 @@ class FingerPrintModel: ObservableObject {
 }
 
 extension FingerPrintModel: Equatable {
-    static func == (lhs: FingerPrintModel, rhs: FingerPrintModel) -> Bool {
+    nonisolated static func == (lhs: FingerPrintModel, rhs: FingerPrintModel) -> Bool {
         lhs.url == rhs.url
     }
 }

@@ -18,7 +18,7 @@ class FingerprintInfoModel: DeviceInfoSectionModel {
     }
 
     @MainActor override func reload() async {
-        enabled = models.count > 0
+        enabled = !models.isEmpty
         rows.removeAll()
 
         for (i, model) in models.enumerated() {

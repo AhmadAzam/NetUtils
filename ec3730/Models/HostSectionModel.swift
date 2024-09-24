@@ -108,7 +108,7 @@ class HostSectionModel: ObservableObject, Equatable, Identifiable, Hashable {
 
     // this must be called in the main queue
     @MainActor
-    internal func reset() {
+    func reset() {
         dataToCopy = nil
         content.removeAll()
         latestData = nil

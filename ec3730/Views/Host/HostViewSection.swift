@@ -27,7 +27,7 @@ struct HostViewSection: View, Equatable, Identifiable, Hashable {
     @MainActor
     var canQuery: Bool {
         if let storeModel = sectionModel.storeModel {
-            return (storeModel.owned || sectionModel.dataFeed.userKey != nil)
+            return storeModel.owned || sectionModel.dataFeed.userKey != nil
         }
         return true
     }
@@ -51,7 +51,7 @@ struct HostViewSection: View, Equatable, Identifiable, Hashable {
                           },
                           label: {
                               HStack(alignment: .center) {
-                                  Text(self.sectionModel.service.name).font(.headline).padding()
+                                  Text(sectionModel.service.name).font(.headline).padding()
                                   Spacer()
                               }
                           })
@@ -59,33 +59,33 @@ struct HostViewSection: View, Equatable, Identifiable, Hashable {
                           .onAppear {
                               // update purchase state
                               Task {
-                                  try? await self.sectionModel.storeModel?.update()
+                                  try? await sectionModel.storeModel?.update()
                               }
                           }
                           .background(Color(UIColor.systemGroupedBackground))
                           .contextMenu(menuItems: {
                               Button(action: {
                                   withAnimation {
-                                      self.isExpanded.toggle()
+                                      isExpanded.toggle()
                                   }
                               }, label: {
-                                  Label(self.isExpanded ? "Collapse" : "Expand", systemImage: self.isExpanded ? "rectangle.compress.vertical" : "rectangle.expand.vertical")
+                                  Label(isExpanded ? "Collapse" : "Expand", systemImage: isExpanded ? "rectangle.compress.vertical" : "rectangle.expand.vertical")
                               })
 
-                              if self != self.model.sections.first, let index = self.model.sections.firstIndex(of: self) {
+                              if self != model.sections.first, let index = model.sections.firstIndex(of: self) {
                                   Button(action: {
                                       withAnimation {
-                                          self.model.sections.swapAt(index, index.advanced(by: -1))
+                                          model.sections.swapAt(index, index.advanced(by: -1))
                                       }
                                   }, label: {
                                       Label("Move Up", systemImage: "arrow.up.to.line")
                                   })
                               }
-                              if self != self.model.sections.last, let index = self.model.sections.firstIndex(of: self) {
+                              if self != model.sections.last, let index = model.sections.firstIndex(of: self) {
                                   Button(action: {
                                       withAnimation {
-                                          self.model.objectWillChange.send()
-                                          self.model.sections.swapAt(index, index.advanced(by: 1))
+                                          model.objectWillChange.send()
+                                          model.sections.swapAt(index, index.advanced(by: 1))
                                       }
                                   }, label: {
                                       Label("Move Down", systemImage: "arrow.down.to.line")
@@ -93,8 +93,8 @@ struct HostViewSection: View, Equatable, Identifiable, Hashable {
                               }
                               Button(action: {
                                   withAnimation {
-                                      if !self.model.hidden.contains(self.sectionModel.service.name) {
-                                          self.model.hidden.append(contentsOf: [self.sectionModel.service.name])
+                                      if !model.hidden.contains(sectionModel.service.name) {
+                                          model.hidden.append(contentsOf: [sectionModel.service.name])
                                       }
                                   }
                               }, label: {
@@ -103,7 +103,7 @@ struct HostViewSection: View, Equatable, Identifiable, Hashable {
                               if !sectionModel.content.isEmpty, canQuery {
                                   Button(action: {
                                       withAnimation {
-                                          self.focused.toggle()
+                                          focused.toggle()
                                       }
                                   }, label: {
                                       Label("Focus", systemImage: "rectangle.and.text.magnifyingglass")
@@ -111,16 +111,16 @@ struct HostViewSection: View, Equatable, Identifiable, Hashable {
                               }
                               Divider()
                               Button(action: {
-                                  UIPasteboard.general.string = self.sectionModel.dataToCopy
+                                  UIPasteboard.general.string = sectionModel.dataToCopy
                               }, label: {
                                   Label("Copy", systemImage: "doc.on.doc")
-                              }).disabled(self.sectionModel.dataToCopy == nil)
-                              Button(action: { self.shouldShare.toggle() }, label: {
+                              }).disabled(sectionModel.dataToCopy == nil)
+                              Button(action: { shouldShare.toggle() }, label: {
                                   Label("Share", systemImage: "square.and.arrow.up")
-                              }).disabled(self.sectionModel.dataToCopy == nil)
+                              }).disabled(sectionModel.dataToCopy == nil)
                           })
                           .sheet(isPresented: $shouldShare, content: {
-                              ShareSheetView(activityItems: [self.sectionModel.dataToCopy ?? "Error"])
+                              ShareSheetView(activityItems: [sectionModel.dataToCopy ?? "Error"])
                           })
                           .sheet(isPresented: $focused, content: {
                               if let latestQueriedUrl = sectionModel.latestQueriedUrl, let latestDate = sectionModel.latestQueryDate {

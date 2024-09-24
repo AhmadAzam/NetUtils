@@ -28,14 +28,14 @@ struct DeviceInfoSectionView: View {
         .contextMenu {
             Button(action: {
                 withAnimation {
-                    self.isExpanded.toggle()
+                    isExpanded.toggle()
                 }
             }, label: {
-                Label(self.isExpanded ? "Collapse" : "Expand", systemImage: self.isExpanded ? "rectangle.compress.vertical" : "rectangle.expand.vertical")
+                Label(isExpanded ? "Collapse" : "Expand", systemImage: isExpanded ? "rectangle.compress.vertical" : "rectangle.expand.vertical")
             })
             Button(action: {
                 withAnimation {
-                    self.focused.toggle()
+                    focused.toggle()
                 }
             }, label: {
                 Label("Focus", systemImage: "rectangle.and.text.magnifyingglass")

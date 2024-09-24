@@ -30,7 +30,7 @@ class WhoisLockedTableViewCell: UITableViewCell {
 
     var restoringActivity = UIActivityIndicatorView()
 
-    internal let smallText = UITextView()
+    let smallText = UITextView()
 
     @objc
     func restore(_: UIButton) {

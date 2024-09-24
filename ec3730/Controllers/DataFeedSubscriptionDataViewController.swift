@@ -1,5 +1,5 @@
 //
-//  DataFeedsTableView.swift
+//  DataFeedSubscriptionDataViewController.swift
 //  ec3730
 //
 //  Created by Zachary Gorak on 10/10/19.
@@ -159,10 +159,6 @@ class DataFeedSubscriptionTableViewController: UITableViewController {
         }
 
         return cell
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
 
     override func tableView(_: UITableView, viewForFooterInSection section: Int) -> UIView? {

@@ -29,7 +29,7 @@ enum CopyCellType: NewCopyCellProtocol {
     }
 
     var shareable: any Shareable {
-        let dict = self.json
+        let dict = json
         guard JSONSerialization.isValidJSONObject(dict), let data = try? JSONSerialization.data(withJSONObject: dict), let string = String(data: data, encoding: .utf8) else {
             return "{}"
         }
@@ -53,7 +53,7 @@ enum CopyCellType: NewCopyCellProtocol {
 
     var isExpandable: Bool {
         switch self {
-        case .multiple(title: _, contents: _):
+        case .multiple:
             return true
         default:
             return false

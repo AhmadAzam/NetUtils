@@ -7,7 +7,7 @@ struct CopyCellToggleableItemRowView: View {
 
     var body: some View {
         HStack(alignment: .center) {
-            Text(self.title)
+            Text(title)
             Spacer()
             TappedText(content: contents)
                 .foregroundColor(style.detailStyle.color)

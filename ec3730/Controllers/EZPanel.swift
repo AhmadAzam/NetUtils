@@ -1,4 +1,5 @@
 import SwiftUI
+
 /**
  An simple NavigationView that has an X in the top right
  */
@@ -12,7 +13,7 @@ struct EZPanel<Content>: View where Content: View {
 
     var body: some View {
         NavigationView {
-            content().navigationBarItems(trailing: Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+            content().navigationBarItems(trailing: Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 Image(systemName: "xmark.circle.fill").foregroundColor(Color(UIColor.systemGray3))
             })
         }

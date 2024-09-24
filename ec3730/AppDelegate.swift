@@ -16,7 +16,7 @@ import CloudKit
 import CoreData
 import SwiftUI
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let services = WhoisXml.current.services + GoogleWebRisk.current.services

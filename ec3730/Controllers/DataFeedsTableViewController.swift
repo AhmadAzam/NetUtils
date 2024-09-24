@@ -1,5 +1,5 @@
 //
-//  DataFeedsTableView.swift
+//  DataFeedsTableViewController.swift
 //  ec3730
 //
 //  Created by Zachary Gorak on 10/10/19.

@@ -16,7 +16,7 @@ open class CellManager {
 
     var isCollapsed: Bool = false
 
-    internal var privateIsLoading: Bool = false
+    var privateIsLoading: Bool = false
     public var isLoading: Bool {
         privateIsLoading
     }

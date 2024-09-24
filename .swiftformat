@@ -39,4 +39,6 @@
 
 # rules
 --disable wrapMultilineStatementBraces
+--disable hoistTry
+--disable hoistAwait
 --enable isEmpty

@@ -1,5 +1,5 @@
 //
-//  UISwitch.swift
+//  DefaultsSwitch.swift
 //  acft
 //
 //  Created by Zachary Gorak on 5/30/19.

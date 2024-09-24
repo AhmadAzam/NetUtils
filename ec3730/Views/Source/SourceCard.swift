@@ -11,7 +11,8 @@ import WebKit
 
 import RunestoneTomorrowTheme
 
-extension TreeSitterLanguage: Hashable {
+extension TreeSitterLanguage: @retroactive Equatable {}
+extension TreeSitterLanguage: @retroactive Hashable {
     public static func == (lhs: TreeSitterLanguage, rhs: TreeSitterLanguage) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
@@ -73,7 +74,7 @@ struct SourceCardView: View {
                                             HStack {
                                                 Spacer()
                                                 Picker(selection: $language, content: {
-                                                    ForEach(availableLanguages, id: \.self.0) { language in
+                                                    ForEach(availableLanguages, id: \.0) { language in
                                                         Text(language.0)
                                                             .id(language.1)
                                                             .tag(language.1)

@@ -17,9 +17,7 @@ final class URLParsedFeed: DataFeedSingleton {
 
     static var session = URLSession.shared
 
-    var services: [Service] = {
-        [URLParsedFeed.lookupService]
-    }()
+    var services: [Service] = [URLParsedFeed.lookupService]
 }
 
 extension URLParsedFeed: DataFeedService {

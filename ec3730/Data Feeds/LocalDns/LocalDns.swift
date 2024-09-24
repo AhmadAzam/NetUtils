@@ -17,9 +17,7 @@ final class LocalDns: DataFeedSingleton {
 
     static var session = URLSession.shared
 
-    var services: [Service] = {
-        [LocalDns.lookupService]
-    }()
+    var services: [Service] = [LocalDns.lookupService]
 }
 
 extension LocalDns: DataFeedService {

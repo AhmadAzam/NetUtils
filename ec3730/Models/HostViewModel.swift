@@ -69,7 +69,7 @@ class HostViewModel: ObservableObject {
         ordered_sections.append(contentsOf: all_sections)
 
         self.sections = ordered_sections.map {
-            return HostViewSection(model: self, sectionModel: $0)
+            HostViewSection(model: self, sectionModel: $0)
         }
     }
 
